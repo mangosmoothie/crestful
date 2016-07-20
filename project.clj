@@ -14,4 +14,6 @@
                                                     javax.jms/jms
                                                     com.sun.jdmk/jmxtools
                                                     com.sun.jmx/jmxri]]]
+  :plugins [[lein-ring "0.9.7"]]
+  :ring {:handler crestful.core/srvr}
   :main crestful.core)

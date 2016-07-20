@@ -32,11 +32,13 @@
   (println msg)
   (System/exit status))
 
+(def srvr (-> handler
+              wrap-keyword-params
+              wrap-params
+              wrap-json-response))
+
 (defn -main [& args]
   (let [options (parse-opts args cli-options)
         port (:port (:options options))]
     (if (:help (:options options)) (exit 0 (:summary options))
-        (run-jetty (-> handler
-                       wrap-keyword-params
-                       wrap-params
-                       wrap-json-response) {:port port}))))
+        (run-jetty srvr {:port port}))))
