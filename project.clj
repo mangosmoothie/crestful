@@ -16,4 +16,5 @@
                                                     com.sun.jmx/jmxri]]]
   :plugins [[lein-ring "0.9.7"]]
   :ring {:handler crestful.core/srvr}
+  :profiles {:uberjar {:aot :all}}
   :main crestful.core)
